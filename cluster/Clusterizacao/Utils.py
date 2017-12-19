@@ -24,4 +24,5 @@ MORE_STOPWORDS2 = ['ja', 'q', 'd', 'ai', 'desse', 'dessa', 'disso', 'nesse', 'ne
                                'gostei',' ok','ok ',' ok ','perfeita','perfeito','recomendo','.',' .','. ','sempre','bom','achei',
                                'eficiente','rapido','boa','super','chegou','pratica','tudo','antes','monkeybiz','bom',
                                 'recomendo..','bonito','feio','problemas','nota','aprovado','ser','simples','repitirei','enrosco','indico',
-                                'compra..adorei','excelente','[','parabens','procos']
+                                'compra..adorei','excelente','[','parabens','procos','top','prica','vendedor','otimo','otima',
+                                'rapida','rapido']

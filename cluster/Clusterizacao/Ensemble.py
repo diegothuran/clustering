@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import sys
 from summa import summarizer
 import csv
-from spellchecker import Spellchecker
+import spellchecker
 from DBSCAN import Dbscan
 from PreProcessamento import PreProcesso
 from ExtracaoSujeito import ExtracaoSujeito
@@ -15,8 +15,8 @@ class Ensemble():
         self.preProc = PreProcesso()
         self.dbscan = Dbscan()
         self.extrator = ExtracaoSujeito()
-        self.not_temas = ['d', '.', 'ok', '10', 'on', 'NO SUGGESTION', 'gr', 'procos']
-        self.spell = Spellchecker()
+        self.not_temas = ['d', '.', 'ok', '10', 'on', 'NO SUGGESTION', 'gr', 'procos','siti','prica','ito']
+        self.spell = spellchecker
 
     def buscar(self):
         reviews =[]
@@ -34,10 +34,12 @@ class Ensemble():
 
     def clusterizar(self):
         reviews = self.buscar()
-        clusters = self.dbscan.dbScan(reviews, 0.3, 5)
-
+        print("Review")
+        print(reviews[0])
+        clusters_bruto = self.dbscan.dbScan(reviews, 0.4, 5)
+        
         topicos = []
-        for cluster in clusters:
+        for cluster in clusters_bruto:
             comentario = ''
             for frase in cluster:
                 comentario = comentario + frase[2] + " "
@@ -48,19 +50,26 @@ class Ensemble():
 
         temas = []
         clusters = []
+        indice = 0
         for frase in topicos:
             try:
-                tema = self.spell.correct(
-                    self.extrator.extrair(summarizer.summarize(frase, words=20, language='portuguese')))
+                tema = self.spell.correct(self.extrator.extrair(summarizer.summarize(frase, words=20, language='portuguese')))
                 if tema not in temas:
+                    indice = indice+1
                     temas.append(tema)
                     clusters.append(frase)
+                    #print(tema)
                 else:
                     ind = temas.index(tema)
+                    novo = clusters_bruto[indice]
                     cluster = clusters[ind]
+                    clusters_bruto[ind].extend(novo)
                     clusters[ind] = cluster + " " + frase
+                    indice = indice+1
+                    #print(tema)
             except:
-                print("Sem Tema")
+                indice = indice+1
+                #print("Sem Tema")
 
         # IDENTIFICAÇÂO DE TEMA FINAL
 
@@ -68,8 +77,9 @@ class Ensemble():
              frase in clusters]
         temas = list(set(temas))
         temas_final = []
+        print("Tema final")
         for tema in temas:
             if tema not in self.not_temas:
+                print(tema)
                 temas_final.append(tema)
-        #return temas_final[0]
-        return "Loja"
+        return temas_final,clusters_bruto

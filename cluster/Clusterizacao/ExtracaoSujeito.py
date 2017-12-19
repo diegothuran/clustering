@@ -18,7 +18,7 @@ class ExtracaoSujeito(object):
         return max
 
     def preparadorSeparador(self,text):
-        tagger = pickle.load(open("tagger.pkl"))
+        tagger = pickle.load(open("cluster/Clusterizacao/tagger.pkl"))
         portuguese_sent_tokenizer = nltk.data.load("tokenizers/punkt/portuguese.pickle")
         sentences = portuguese_sent_tokenizer.tokenize(text)
         tags = [tagger.tag(nltk.word_tokenize(sentence)) for sentence in sentences]
