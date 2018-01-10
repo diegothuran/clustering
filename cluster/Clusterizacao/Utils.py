@@ -4,6 +4,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import sys
+from ..models import Review
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -26,3 +27,14 @@ MORE_STOPWORDS2 = ['ja', 'q', 'd', 'ai', 'desse', 'dessa', 'disso', 'nesse', 'ne
                                 'recomendo..','bonito','feio','problemas','nota','aprovado','ser','simples','repitirei','enrosco','indico',
                                 'compra..adorei','excelente','[','parabens','procos','top','prica','vendedor','otimo','otima',
                                 'rapida','rapido']
+
+
+
+#------------------Functions----------------------------------
+
+def create_review(frase, cluster):
+    review = Review()
+    review.text = frase[2]
+    review.cluster = cluster
+    review.data = frase[1]
+    review.save()

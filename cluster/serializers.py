@@ -2,6 +2,7 @@ from .models import Cluster, Clusterizacao , Review
 from rest_framework import serializers
 from Clusterizacao.Ensemble import Ensemble
 import json
+from Clusterizacao.Utils import create_review
 
 class ReviewSerializer(serializers.ModelSerializer):
 
@@ -24,17 +25,17 @@ class ClusterizacaoSerializer(serializers.ModelSerializer):
         model = Clusterizacao
         fields = ('__all__')
 
-    def create(self,data):
+    def create(self, data):
         frases = json.loads(data['ecommerce'])
         reviews = []
         for opnion in frases['opinions']:
-            reviews.append((opnion['text'],opnion['data']))
+            reviews.append((opnion['text'], opnion['data']))
 
         ensemble = Ensemble()
         clusterizacao = Clusterizacao()
 
         clusterizacao.ecommerce = frases['ecommerce']
-        temas,clusters = ensemble.clusterizar(reviews)
+        temas, clusters = ensemble.clusterizar(reviews)
         clusterizacao.save()
         ind = 0
 
@@ -43,12 +44,8 @@ class ClusterizacaoSerializer(serializers.ModelSerializer):
             cluster.title = tema
             cluster.clusterizacao = clusterizacao
             cluster.save()
-            for frase in clusters[ind]:
-                review = Review()
-                review.text = frase[2]
-                review.cluster = cluster
-                review.data = frase[1]
-                review.save()
+
+            [create_review(frase, cluster) for frase in clusters[ind]]
             ind = ind+1
 
         return clusterizacao
