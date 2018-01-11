@@ -1,0 +1,26 @@
+---
+- hosts: all
+  tasks:
+  - name: clone git repository
+    git:
+      repo: https://gitlab.com/trustvox/clustering
+      dest: /home/trustv/clustering
+      version: "{{ version }}"
+  - name: build docker image
+    shell: cd clustering && docker build -t trustvox/clustering:{{ version }} .
+  - name: register possibly running container with same name
+    shell: docker ps -a | grep clustering | wc -l
+    register: clustering_running_container
+  - name: stop possibly running container with same name
+    shell: docker rm -f clustering
+    when: clustering_running_container.stdout != "0"
+  - name: run container
+    shell: >
+      docker run -e "clustering_ENV=production" -d
+      --name clustering
+      -p 9901:8000
+      trustvox/clustering:{{ version }}
+  - name: remove cloned git repo
+    file:
+      path: /home/trustv/clustering
+      state: absent
