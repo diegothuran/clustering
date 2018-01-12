@@ -3,7 +3,7 @@
   tasks:
   - name: clone git repository
     git:
-      repo: https://gitlab.com/trustvox/clustering
+      repo: https://github.com/CarlosQuixada/ApiClusterizacao
       dest: /home/trustv/clustering
       version: "{{ version }}"
   - name: build docker image
