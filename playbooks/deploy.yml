@@ -18,7 +18,7 @@
     shell: >
       docker run -e "clustering_ENV=production" -d
       --name clustering
-      -p 9901:8000
+      -p 9920:8000
       trustvox/clustering:{{ version }}
   - name: remove cloned git repo
     file:
