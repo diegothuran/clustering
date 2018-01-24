@@ -17,8 +17,8 @@
       <file leaf-file-name="deploy.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/playbooks/deploy.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="144">
+              <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -42,7 +42,6 @@
       <list>
         <option value="$PROJECT_DIR$/rambo_teste/urls.py" />
         <option value="$PROJECT_DIR$/cluster/migrations/0002_auto_20171129_1353.py" />
-        <option value="$PROJECT_DIR$/rambo_teste/settings.py" />
         <option value="$PROJECT_DIR$/cluster/Clusterizacao/ExtracaoSujeito.py" />
         <option value="$PROJECT_DIR$/cluster/Clusterizacao/spellchecker.py" />
         <option value="$PROJECT_DIR$/pytest.py" />
@@ -54,6 +53,7 @@
         <option value="$PROJECT_DIR$/cluster/Clusterizacao/Ensemble.py" />
         <option value="$PROJECT_DIR$/cluster/views.py" />
         <option value="$PROJECT_DIR$/docker-entrypoint.sh" />
+        <option value="$PROJECT_DIR$/rambo_teste/settings.py" />
         <option value="$PROJECT_DIR$/playbooks/deploy.yml" />
       </list>
     </option>
@@ -65,7 +65,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="252" />
+    <option name="x" value="266" />
     <option name="y" value="1080" />
     <option name="width" value="1922" />
     <option name="height" value="1055" />
@@ -105,8 +105,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,6 +121,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,11 +263,25 @@
       <option name="project" value="LOCAL" />
       <updated>1515689608247</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Deploy files">
+      <created>1515785601345</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1515785601345</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changing allowed hosts">
+      <created>1515785943870</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1515785943870</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="252" y="1080" width="1922" height="1055" extended-state="6" />
+    <frame x="266" y="1080" width="1922" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34635416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -322,7 +336,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code Review" />
     <MESSAGE value="Deploy files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deploy files" />
+    <MESSAGE value="Changing allowed hosts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing allowed hosts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -553,22 +568,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rambo_teste/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="39" column="21" lean-forward="false" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inventory/staging">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inventory/production">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -610,6 +610,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rambo_teste/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/deploy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -634,6 +642,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inventory/production">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/playbooks/deploy.retry">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -644,8 +660,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/playbooks/deploy.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="144">
+          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
           <folding />
         </state>
       </provider>
