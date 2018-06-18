@@ -15,8 +15,7 @@
     shell: docker rm -f clustering
     when: clustering_running_container.stdout != "0"
   - name: stop or create network
-    shell: >
-      docker network create trustv_clustering_net || true
+    shell: docker network create trustv_clustering_net || true
   - name: run container
     shell: >
       docker network disconnect -f trustv_clustering_net clustering &
