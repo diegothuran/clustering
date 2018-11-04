@@ -15,7 +15,7 @@ class Dbscan(object):
 
     #Função Responsável por realizar clacula de similaridade
     def fadingDistance(self,fraseA, fraseB):
-        FMT = "%Y-%m-%d %H:%M:%S"
+        FMT = "%Y-%m-%d"
 
         if datetime.strptime(fraseA[1], FMT) > datetime.strptime(fraseB[1], FMT):
             tdelta = datetime.strptime(fraseA[1], FMT) - datetime.strptime(fraseB[1], FMT)
